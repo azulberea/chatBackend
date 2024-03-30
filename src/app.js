@@ -4,7 +4,6 @@ import { Server } from "socket.io"
 
 import __dirname from "./utils.js"
 import viewsRouter from "./routes/views.router.js"
-import Swal from "sweetalert2"
 
 //server http
 const app = express()

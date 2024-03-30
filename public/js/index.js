@@ -4,6 +4,7 @@ const socket = io()
 let user
 let chatBox = document.getElementById("chatBox")
 let chatLogs = document.getElementById("chatLogs")
+let sendButton = document.getElementById("sendButton")
 
 Swal.fire({
     title: "Bienvenido",
@@ -33,6 +34,17 @@ chatBox.addEventListener("keypress", e => {
             chatBox.value = ""
 
         }
+    }
+})
+
+sendButton.addEventListener("click", e => {
+    if (chatBox.value.trim().length > 0){
+        socket.emit("message", {
+            user,
+            message: chatBox.value
+        })
+
+        chatBox.value = ""
     }
 })
 
